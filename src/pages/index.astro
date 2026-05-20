@@ -2,8 +2,6 @@
 import "../styles/global.css";
 
 const repoUrl = "https://github.com/blairhudson/openremote";
-const iosBetaUrl = "#ios-beta";
-const androidBetaUrl = "#android-beta";
 ---
 
 <!doctype html>
@@ -19,44 +17,46 @@ const androidBetaUrl = "#android-beta";
   <body>
     <main class="page-shell">
       <nav class="topbar" aria-label="Primary navigation">
-        <a class="brand" href="#top" aria-label="OpenRemote home">
-          <img src="/openremote-wordmark.svg" alt="openremote" />
-        </a>
-        <div class="nav-links">
-          <a href="#beta">beta</a>
-          <a href="#help">help</a>
-          <a href={repoUrl}>github</a>
+        <div class="topbar-inner">
+          <a class="brand" href="#top" aria-label="OpenRemote home">
+            <img src="/openremote-wordmark.svg" alt="openremote" />
+          </a>
+          <div class="nav-links">
+            <a href="#beta">beta</a>
+            <a href="#help">help</a>
+            <a class="nav-icon coming-soon" href="#github" aria-label="GitHub coming soon" aria-disabled="true">
+              <svg class="button-icon" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+              </svg>
+            </a>
+          </div>
         </div>
       </nav>
 
       <section id="top" class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">OpenCode in your pocket</p>
+          <p class="eyebrow beta-pill">Currently in private beta</p>
           <h1>Control desktop coding sessions from your phone.</h1>
           <p class="lede">OpenRemote connects to OpenCode over your local network so you can chat, switch models, run shell commands, and approve permissions without staying at your desk.</p>
           <div class="actions" aria-label="Primary actions">
-            <a class="button primary" href={iosBetaUrl}>iOS beta</a>
-            <a class="button" href={androidBetaUrl}>Android beta</a>
-            <a class="button ghost" href={repoUrl}>GitHub repo</a>
-          </div>
-          <div class="terminal-note" aria-label="Quick start command">
-            <span class="prompt">$</span>
-            <code>opencode --mdns</code>
+            <a class="button primary" href="#beta-access-modal">Join the Beta</a>
+            <a class="button ghost coming-soon" href="#github" aria-disabled="true">
+              <svg class="button-icon" viewBox="0 0 16 16" aria-hidden="true">
+                <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+              </svg>
+              GitHub
+            </a>
           </div>
         </div>
 
         <div class="device-frame" aria-label="OpenRemote app video preview">
           <div class="phone-shell">
-            <div class="phone-status">
-              <span>openremote</span>
-              <span>connected</span>
-            </div>
             <video class="app-video" autoplay muted loop playsinline controls poster="/openremote-icon.svg">
-              <source src="/app-demo.mp4" type="video/mp4" />
+              <source src="/openremote-docs.mp4" type="video/mp4" />
             </video>
             <div class="video-fallback">
-              <strong>app video soon</strong>
-              <span>drop `app-demo.mp4` into `public/`</span>
+              <strong>OpenRemote demo</strong>
+              <span>connect, chat, shell, approve</span>
             </div>
           </div>
         </div>
@@ -64,63 +64,107 @@ const androidBetaUrl = "#android-beta";
 
       <section class="feature-grid" aria-label="OpenRemote features">
         <article>
-          <span class="glyph">/</span>
-          <h2>Session control</h2>
-          <p>Open existing sessions, send prompts, switch Build or Plan, and keep context visible while OpenCode streams.</p>
+          <h2><span class="feature-icon">/</span>Live sessions</h2>
+          <p>Open desktop coding sessions and keep context in view.</p>
         </article>
         <article>
-          <span class="glyph">$</span>
-          <h2>Shell from mobile</h2>
-          <p>Swipe to terminal input, run shell commands, and keep output inside the main transcript.</p>
+          <h2><span class="feature-icon">↵</span>Mobile prompts</h2>
+          <p>Send messages from your phone while OpenCode streams back.</p>
         </article>
         <article>
-          <span class="glyph">?</span>
-          <h2>Permission approvals</h2>
-          <p>Approve once, approve always, or reject with fallback instructions from phone.</p>
+          <h2><span class="feature-icon">$</span>Shell commands</h2>
+          <p>Swipe to terminal input and run commands remotely.</p>
+        </article>
+        <article>
+          <h2><span class="feature-icon">?</span>Permission checks</h2>
+          <p>Approve once, approve always, or reject with instructions.</p>
+        </article>
+        <article>
+          <h2><span class="feature-icon">◆</span>Model control</h2>
+          <p>Switch Build or Plan and choose connected models.</p>
+        </article>
+        <article>
+          <h2><span class="feature-icon">⌁</span>LAN setup</h2>
+          <p>Discover OpenCode over mDNS or connect manually.</p>
         </article>
       </section>
 
       <section id="beta" class="split-section">
         <div>
-          <p class="eyebrow">beta access</p>
-          <h2>Install OpenRemote</h2>
-          <p>Beta links will live here. Until public links are ready, use local dev builds from GitHub.</p>
+          <h2>Available for iOS and Android</h2>
         </div>
-        <div class="cards">
-          <article id="ios-beta" class="card">
-            <h3>iOS TestFlight</h3>
-            <p>Join TestFlight, install OpenRemote, then connect to a computer running OpenCode with mDNS enabled.</p>
-            <a class="button disabled" href="#ios-beta" aria-disabled="true">TestFlight link coming soon</a>
+        <div class="platform-tabs" aria-label="Platform availability">
+          <input id="platform-ios" class="platform-radio" type="radio" name="platform" checked />
+          <input id="platform-android" class="platform-radio" type="radio" name="platform" />
+          <div class="platform-tab-list" role="tablist" aria-label="Choose platform">
+            <label class="platform-tab platform-tab-ios" for="platform-ios" role="tab">iOS</label>
+            <label class="platform-tab platform-tab-android" for="platform-android" role="tab">Android</label>
+          </div>
+          <article class="platform-panel platform-panel-ios">
+            <h3>iOS</h3>
+            <p>TestFlight access is coming soon, then OpenRemote will be submitted to the App Store.</p>
+            <a class="app-store-badge disabled" href="#ios-beta" aria-disabled="true" aria-label="Available on the App Store coming soon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M16.7 12.7c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.8-3.1.8-.6 0-1.6-.8-2.7-.7-1.4 0-2.7.8-3.4 2.1-1.5 2.6-.4 6.4 1.1 8.5.7 1 1.5 2.2 2.6 2.1 1 0 1.4-.7 2.7-.7 1.2 0 1.6.7 2.7.7 1.1 0 1.8-1 2.5-2 .8-1.2 1.1-2.3 1.1-2.4-.1 0-2.3-.9-2.3-3.6ZM14.6 6.5c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.6.9.1 1.9-.5 2.5-1.2Z" />
+              </svg>
+              <span>
+                <small>Available on the</small>
+                App Store
+              </span>
+            </a>
           </article>
-          <article id="android-beta" class="card">
-            <h3>Android internal testing</h3>
-            <p>Join the Google Play internal testing group, install OpenRemote, then connect over LAN or mDNS.</p>
-            <a class="button disabled" href="#android-beta" aria-disabled="true">Play testing link coming soon</a>
+          <article class="platform-panel platform-panel-android">
+            <h3>Android</h3>
+            <p>Google Play testing is coming soon.</p>
+            <a class="play-store-badge disabled" href="#android-beta" aria-disabled="true" aria-label="Get it on Google Play coming soon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#00f076" d="M3.8 2.4c-.3.3-.5.8-.5 1.4v16.4c0 .6.2 1.1.6 1.4L13 12 3.8 2.4Z" />
+                <path fill="#00d6ff" d="m16 8.8-3-3L3.8 2.4 13 12l3-3.2Z" />
+                <path fill="#ffce00" d="M13 12 3.9 21.6c.4.3.9.3 1.5 0L16 15.2 13 12Z" />
+                <path fill="#ff3a44" d="m20.1 10.5-4.1-2.4-3 3.9 3 3.2 4.1-2.4c1-.6 1-1.7 0-2.3Z" />
+              </svg>
+              <span>
+                <small>GET IT ON</small>
+                Google Play
+              </span>
+            </a>
           </article>
         </div>
       </section>
 
+      <section id="open" class="split-section open-section">
+        <div>
+          <h2>OpenRemote is Open.</h2>
+        </div>
+        <article class="card open-card">
+          <p>The full source is available on GitHub for you to build and run OpenRemote yourself.</p>
+          <div class="open-actions">
+            <a class="button ghost coming-soon" href={`${repoUrl}/issues/new?template=feature_request.yml`} aria-disabled="true">Request a Feature</a>
+            <a class="button ghost coming-soon" href={`${repoUrl}/issues/new?template=bug_report.yml`} aria-disabled="true">Report a Bug</a>
+          </div>
+        </article>
+      </section>
+
       <section id="help" class="docs-section">
-        <p class="eyebrow">help docs</p>
         <h2>Connect to OpenCode</h2>
         <div class="docs-grid">
           <article class="doc-card">
-            <h3>Run OpenCode with mDNS</h3>
-            <pre><code>opencode --mdns</code></pre>
-            <p>OpenRemote searches your local network and fills connection fields when it finds a server.</p>
-          </article>
-          <article class="doc-card">
-            <h3>Shared network password</h3>
+            <h3>Run OpenCode on your network</h3>
+            <div class="command-options">
+              <pre><code>opencode --mdns</code></pre>
+              <span>or</span>
+              <pre><code>opencode --hostname 0.0.0.0</code></pre>
+            </div>
+            <h3 class="doc-subheading">Use a password before starting OpenCode on shared or public Wi-Fi:</h3>
             <pre><code>OPENCODE_SERVER_PASSWORD=changeme123 opencode --mdns</code></pre>
-            <p>Use a password before starting OpenCode on shared or public Wi-Fi.</p>
           </article>
+        </div>
+      </section>
+
+      <section id="plugin" class="docs-section">
+        <h2>OpenRemote Plugin</h2>
+        <div class="docs-grid">
           <article class="doc-card">
-            <h3>Android emulator</h3>
-            <pre><code>opencode --host 0.0.0.0 --port 4096</code></pre>
-            <p>From Android emulator, connect to <code>10.0.2.2:4096</code> instead of localhost.</p>
-          </article>
-          <article class="doc-card">
-            <h3>Optional OpenCode plugin</h3>
             <pre><code>npm install opencode-openremote</code></pre>
             <p>Add <code>opencode-openremote</code> to <code>opencode.json</code> and <code>opencode-openremote/tui</code> to <code>tui.json</code> for sidebar QR and keep-awake.</p>
           </article>
@@ -128,9 +172,21 @@ const androidBetaUrl = "#android-beta";
       </section>
 
       <footer class="footer">
-        <span>OpenRemote</span>
-        <a href={repoUrl}>github.com/blairhudson/openremote</a>
+        <span>OpenRemote &copy; Blair Hudson 2026 built with &lt;3 and agents</span>
       </footer>
     </main>
+    <div id="beta-access-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="beta-access-title">
+      <a class="modal-backdrop" href="#top" aria-label="Close beta access modal"></a>
+      <div class="modal-card">
+        <a class="modal-close" href="#top" aria-label="Close beta access modal">×</a>
+        <p class="eyebrow">private beta</p>
+        <h2 id="beta-access-title">Open signups are coming soon.</h2>
+        <p>If you'd like access to the private beta please message <a class="inline-link" href="https://www.linkedin.com/in/blairhudson/" target="_blank" rel="noreferrer">
+          <svg class="inline-icon" viewBox="0 0 16 16" aria-hidden="true">
+            <path fill="currentColor" d="M14.82 0H1.18C.53 0 0 .51 0 1.14v13.72C0 15.49.53 16 1.18 16h13.64c.65 0 1.18-.51 1.18-1.14V1.14C16 .51 15.47 0 14.82 0ZM4.75 13.64H2.37V6h2.38v7.64ZM3.56 4.96a1.38 1.38 0 1 1 0-2.76 1.38 1.38 0 0 1 0 2.76Zm10.08 8.68h-2.37V9.93c0-.89-.02-2.03-1.24-2.03-1.24 0-1.43.97-1.43 1.96v3.78H6.23V6H8.5v1.04h.03c.32-.6 1.09-1.24 2.24-1.24 2.4 0 2.84 1.58 2.84 3.63v4.21h.03Z" />
+          </svg>
+          Blair Hudson</a> or comment on <a class="inline-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7461903327052607488/" target="_blank" rel="noreferrer">this post</a>.</p>
+      </div>
+    </div>
   </body>
 </html>
