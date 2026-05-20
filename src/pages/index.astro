@@ -22,7 +22,7 @@ const repoUrl = "https://github.com/blairhudson/openremote";
             <img src="/openremote-wordmark.svg" alt="openremote" />
           </a>
           <div class="nav-links">
-            <a href="#beta">beta</a>
+            <a class="eyebrow beta-pill nav-beta-pill" href="#join-beta">private beta</a>
             <a href="#help">help</a>
             <a class="nav-icon coming-soon" href="#github" aria-label="GitHub coming soon" aria-disabled="true">
               <svg class="button-icon" viewBox="0 0 16 16" aria-hidden="true">
@@ -39,7 +39,7 @@ const repoUrl = "https://github.com/blairhudson/openremote";
           <h1>Control desktop coding sessions from your phone.</h1>
           <p class="lede">OpenRemote connects to OpenCode over your local network so you can chat, switch models, run shell commands, and approve permissions without staying at your desk.</p>
           <div class="actions" aria-label="Primary actions">
-            <a class="button primary" href="#beta-access-modal">Join the Beta</a>
+            <label id="join-beta" class="button primary" for="beta-access-toggle" role="button" tabindex="0">Join the Beta</label>
             <a class="button ghost coming-soon" href="#github" aria-disabled="true">
               <svg class="button-icon" viewBox="0 0 16 16" aria-hidden="true">
                 <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
@@ -51,7 +51,7 @@ const repoUrl = "https://github.com/blairhudson/openremote";
 
         <div class="device-frame" aria-label="OpenRemote app video preview">
           <div class="phone-shell">
-            <video class="app-video" autoplay muted loop playsinline controls poster="/openremote-icon.svg">
+            <video class="app-video" autoplay muted loop playsinline poster="/openremote-icon.svg">
               <source src="/openremote-docs.mp4" type="video/mp4" />
             </video>
             <div class="video-fallback">
@@ -172,13 +172,15 @@ const repoUrl = "https://github.com/blairhudson/openremote";
       </section>
 
       <footer class="footer">
-        <span>OpenRemote &copy; Blair Hudson 2026 built with &lt;3 and agents</span>
+        <span>OpenRemote &copy; Blair Hudson 2026 built with &lt;3, OpenCode and OpenRemote</span>
+        <span class="footer-notice">OpenCode &copy; 2026 Anomaly. OpenRemote is not affiliated with, related to, or endorsed by Anomaly. See <a class="inline-link" href="https://opencode.ai/" target="_blank" rel="noreferrer">opencode.ai</a> for official information.</span>
       </footer>
     </main>
+    <input id="beta-access-toggle" class="modal-toggle" type="checkbox" aria-hidden="true" />
     <div id="beta-access-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="beta-access-title">
-      <a class="modal-backdrop" href="#top" aria-label="Close beta access modal"></a>
+      <label class="modal-backdrop" for="beta-access-toggle" aria-label="Close beta access modal"></label>
       <div class="modal-card">
-        <a class="modal-close" href="#top" aria-label="Close beta access modal">×</a>
+        <label class="modal-close" for="beta-access-toggle" aria-label="Close beta access modal" role="button" tabindex="0">×</label>
         <p class="eyebrow">private beta</p>
         <h2 id="beta-access-title">Open signups are coming soon.</h2>
         <p>If you'd like access to the private beta please message <a class="inline-link" href="https://www.linkedin.com/in/blairhudson/" target="_blank" rel="noreferrer">

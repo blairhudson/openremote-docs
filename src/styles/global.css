@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 86px;
 }
 
 body {
@@ -100,6 +101,17 @@ pre,
   border-color: var(--line);
   color: var(--ink);
   background: var(--panel);
+}
+
+.nav-links .nav-beta-pill {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  padding: 0.42rem 0.65rem;
+}
+
+.nav-links .nav-beta-pill:hover {
+  border-color: rgba(208, 208, 208, 0.28);
+  background-image: linear-gradient(90deg, #cfcfcf 0%, #9fd1aa 52%, #8f9698 100%);
 }
 
 .nav-links .nav-icon {
@@ -289,6 +301,11 @@ h3 {
   height: 1rem;
 }
 
+#join-beta,
+section[id] {
+  scroll-margin-top: 86px;
+}
+
 .modal {
   position: fixed;
   inset: 0;
@@ -298,7 +315,13 @@ h3 {
   padding: 1.5rem;
 }
 
-.modal:target {
+.modal-toggle {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-toggle:checked + .modal {
   display: grid;
 }
 
@@ -307,6 +330,7 @@ h3 {
   inset: 0;
   background: rgba(0, 0, 0, 0.62);
   backdrop-filter: blur(12px);
+  cursor: pointer;
 }
 
 .modal-card {
@@ -345,6 +369,7 @@ h3 {
   border-radius: 999px;
   color: var(--muted);
   background: #101213;
+  cursor: pointer;
 }
 
 .inline-link {
@@ -671,6 +696,8 @@ pre {
   background: #101213;
   color: var(--green);
   padding: 0.9rem;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .command-options {
@@ -698,11 +725,18 @@ pre {
 }
 
 .footer {
-  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
   gap: 1rem;
   margin-top: 96px;
   color: var(--muted);
   padding: 72px 0;
+}
+
+.footer-notice {
+  max-width: 62ch;
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 
 @media (min-width: 821px) {
@@ -727,12 +761,27 @@ pre {
 
 @media (max-width: 820px) {
   .page-shell {
-    width: min(100% - 24px, 640px);
+    width: min(100% - 28px, 640px);
   }
 
   .topbar-inner {
-    align-items: flex-start;
-    flex-direction: column;
+    gap: 0.75rem;
+    width: min(100% - 28px, 640px);
+    padding: 14px 0;
+  }
+
+  .brand img {
+    width: 198px;
+    max-width: 52vw;
+  }
+
+  .nav-links {
+    gap: 0.15rem;
+    font-size: 0.84rem;
+  }
+
+  .nav-links a {
+    padding: 0.4rem 0.55rem;
   }
 
   .hero,
@@ -744,24 +793,209 @@ pre {
   }
 
   .hero {
+    justify-items: center;
     min-height: auto;
-    padding-top: 24px;
+    gap: 2rem;
+    padding: 32px 0 44px;
+    text-align: center;
+  }
+
+  .hero-copy {
+    justify-items: center;
+    gap: 1rem;
+  }
+
+  .beta-pill {
+    justify-self: center;
   }
 
   .device-frame {
     position: static;
-  }
-
-  h1 {
-    max-width: 10ch;
-  }
-
-  .phone-shell {
     width: min(100%, 340px);
   }
 
+  .actions {
+    justify-content: center;
+  }
+
+  h1 {
+    max-width: 12ch;
+    font-size: clamp(3rem, 15vw, 4.8rem);
+    line-height: 0.9;
+  }
+
+  h2 {
+    font-size: clamp(1.45rem, 7vw, 2rem);
+  }
+
+  .lede {
+    max-width: 34rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .phone-shell {
+    width: 100%;
+    border-radius: 36px;
+    padding: 12px;
+  }
+
+  .app-video {
+    border-radius: 24px;
+  }
+
+  .feature-grid {
+    gap: 0.75rem;
+    padding: 28px 0;
+  }
+
+  .feature-grid article {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .feature-grid h2 {
+    margin-bottom: 0.6rem;
+  }
+
+  .split-section,
+  .docs-section {
+    margin-top: 40px;
+    padding: 36px 0;
+  }
+
+  .platform-panel,
+  .card,
+  .doc-card {
+    padding: 1rem;
+  }
+
+  .docs-grid {
+    margin-top: 1rem;
+  }
+
+  .command-options {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .command-options span {
+    text-align: center;
+  }
+
+  .open-actions .button {
+    flex: 1 1 180px;
+  }
+
+  .modal {
+    align-items: end;
+    padding: 0.75rem;
+  }
+
+  .modal-card {
+    width: 100%;
+    border-radius: 22px;
+    padding: 1.25rem;
+  }
+
   .footer {
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 36px 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-shell,
+  .topbar-inner {
+    width: min(100% - 24px, 420px);
+  }
+
+  .topbar-inner {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .brand img {
+    width: 184px;
+    max-width: 72vw;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hero {
+    padding-top: 24px;
+  }
+
+  h1 {
+    max-width: 11ch;
+    font-size: clamp(2.85rem, 17vw, 4rem);
+  }
+
+  .actions,
+  .actions .button,
+  .platform-tabs,
+  .open-actions,
+  .open-actions .button {
+    width: 100%;
+  }
+
+  .actions .button,
+  .open-actions .button {
+    min-height: 46px;
+  }
+
+  .device-frame {
+    width: min(100%, 310px);
+  }
+
+  .phone-shell {
+    border-radius: 32px;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.42), inset 0 0 0 5px #090a0b;
+  }
+
+  .feature-grid,
+  .docs-grid,
+  .cards {
+    gap: 0.75rem;
+  }
+
+  .platform-tab {
+    padding: 0.58rem 0.7rem;
+  }
+
+  .app-store-badge,
+  .play-store-badge {
+    width: 100%;
+    justify-content: center;
+  }
+
+  pre {
+    padding: 0.8rem;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .page-shell,
+  .topbar-inner {
+    width: min(100% - 18px, 342px);
+  }
+
+  .nav-links a {
+    padding: 0.36rem 0.45rem;
+  }
+
+  h1 {
+    font-size: 2.7rem;
+  }
+
+  .device-frame {
+    width: min(100%, 286px);
   }
 }
