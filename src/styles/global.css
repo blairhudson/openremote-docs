@@ -504,6 +504,16 @@ section[id] {
   line-height: 1;
 }
 
+.feature-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
 .feature-grid p,
 .card p,
 .doc-card p {
@@ -914,18 +924,18 @@ pre {
   }
 
   .topbar-inner {
-    align-items: flex-start;
-    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .brand img {
-    width: 184px;
-    max-width: 72vw;
+    width: 148px;
+    max-width: 42vw;
   }
 
   .nav-links {
-    width: 100%;
-    justify-content: space-between;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    gap: 0.05rem;
   }
 
   .hero {
@@ -988,7 +998,21 @@ pre {
   }
 
   .nav-links a {
-    padding: 0.36rem 0.45rem;
+    padding: 0.34rem 0.38rem;
+  }
+
+  .brand img {
+    width: 126px;
+  }
+
+  .nav-links {
+    font-size: 0.78rem;
+  }
+
+  .nav-links .nav-beta-pill {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    padding: 0.34rem 0.42rem;
   }
 
   h1 {
