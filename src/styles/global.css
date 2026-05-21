@@ -42,6 +42,13 @@ body {
   background-size: 28px 28px, 28px 28px, auto, auto, auto;
 }
 
+body.og-page {
+  width: 1200px;
+  height: 630px;
+  min-width: 1200px;
+  overflow: hidden;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -68,6 +75,97 @@ pre,
   border-bottom: 1px solid var(--line);
   background: rgba(21, 23, 24, 0.9);
   backdrop-filter: blur(12px);
+}
+
+.og-canvas {
+  position: relative;
+  display: grid;
+  width: 1200px;
+  height: 630px;
+  padding: 64px;
+}
+
+.og-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-left: 10px solid var(--cyan);
+  background: var(--panel);
+  padding: 56px 440px 56px 40px;
+}
+
+.og-wordmark {
+  width: 448px;
+  height: auto;
+  margin-bottom: 48px;
+}
+
+.og-kicker {
+  margin: 0 0 22px;
+  color: var(--accent);
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.og-panel h1 {
+  max-width: 710px;
+  margin: 0;
+  color: var(--ink);
+  font-size: 64px;
+  line-height: 1.16;
+  letter-spacing: -0.06em;
+}
+
+.og-copy {
+  max-width: 650px;
+  margin: 26px 0 0;
+  color: var(--muted);
+  font-size: 25px;
+  line-height: 1.45;
+}
+
+.og-feature-row {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.og-feature-row span {
+  border: 1px solid currentColor;
+  background: var(--bg);
+  color: var(--cyan);
+  font-size: 20px;
+  font-weight: 800;
+  padding: 0.55rem 0.7rem;
+}
+
+.og-feature-row span:nth-child(2) {
+  color: var(--accent);
+}
+
+.og-feature-row span:nth-child(3) {
+  color: var(--pink);
+}
+
+.og-logo-mark {
+  position: absolute;
+  top: 142px;
+  right: 146px;
+  display: grid;
+  place-items: center;
+  width: 286px;
+  height: 286px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+}
+
+.og-logo-mark img {
+  width: 286px;
+  height: 286px;
 }
 
 .topbar-inner {
@@ -600,8 +698,13 @@ section[id] {
   gap: 0.9rem;
 }
 
-#beta > div:first-child h2 {
+#beta > div:first-child h2,
+#open > div:first-child h2 {
   margin-bottom: 0;
+}
+
+#open {
+  gap: 0.9rem;
 }
 
 .cards {
@@ -750,6 +853,47 @@ section[id] {
   margin-top: 1.5rem;
 }
 
+.plugin-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.plugin-feature-card {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid currentColor;
+  background: var(--panel);
+  font-weight: 800;
+  padding: 0.95rem 1rem;
+}
+
+.plugin-feature-card svg {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.plugin-feature-cyan {
+  color: var(--cyan);
+}
+
+.plugin-feature-accent {
+  color: var(--accent);
+}
+
+.plugin-feature-pink {
+  color: var(--pink);
+}
+
 pre {
   overflow: auto;
   border: 1px solid var(--line);
@@ -858,6 +1002,7 @@ pre {
   .split-section,
   .feature-grid,
   .docs-grid,
+  .plugin-feature-grid,
   .cards {
     grid-template-columns: 1fr;
   }
