@@ -210,7 +210,7 @@ pre,
 
 .nav-links a {
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 0;
   padding: 0.4rem 0.62rem;
 }
 
@@ -271,7 +271,7 @@ pre,
 .beta-pill {
   width: fit-content;
   border: 1px solid var(--accent);
-  border-radius: 8px;
+  border-radius: 0;
   background: rgba(240, 255, 0, 0.08);
   color: var(--accent);
   -webkit-text-fill-color: currentColor;
@@ -400,10 +400,13 @@ section[id] {
   padding: 1.4rem;
 }
 
-.modal-card p:last-child {
-  margin-bottom: 0;
+.modal-card p {
   color: var(--muted);
   line-height: 1.65;
+}
+
+.modal-card p:last-child {
+  margin-bottom: 0;
 }
 
 .modal-card h2 {
@@ -471,7 +474,7 @@ section[id] {
   flex-direction: column;
   gap: 3px;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 0;
   background: rgba(12, 14, 15, 0.9);
   cursor: pointer;
 }
@@ -480,7 +483,7 @@ section[id] {
   display: block;
   width: 16px;
   height: 2px;
-  border-radius: 999px;
+  border-radius: 0;
   background: var(--ink);
   transform-origin: center;
   transition: transform 160ms ease, opacity 160ms ease;
@@ -527,7 +530,7 @@ section[id] {
   display: block;
   padding: 0.55rem 0.7rem;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 0;
   color: var(--muted);
   font-size: 0.88rem;
   text-decoration: none;
@@ -551,7 +554,7 @@ section[id] {
   justify-content: space-between;
   padding: 0.55rem 0.7rem;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 0;
   color: var(--muted);
   cursor: pointer;
   font-size: 0.88rem;
@@ -670,7 +673,7 @@ section[id] {
 .timeline-card,
 .feature-roadmap-card {
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 0;
   background: rgba(12, 14, 15, 0.74);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
@@ -778,7 +781,7 @@ section[id] {
   width: fit-content;
   align-items: center;
   border: 1px solid rgba(32, 167, 201, 0.36);
-  border-radius: 999px;
+  border-radius: 0;
   background: rgba(32, 167, 201, 0.1);
   color: var(--cyan);
   padding: 0.28rem 0.55rem;
@@ -813,6 +816,44 @@ section[id] {
   border-color: rgba(255, 107, 107, 0.36);
   background: rgba(255, 107, 107, 0.1);
   color: var(--red);
+}
+
+.news-hero {
+  padding-bottom: 32px;
+}
+
+.news-section {
+  padding-top: 28px;
+}
+
+.news-post {
+  display: grid;
+  gap: 1rem;
+  max-width: 760px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 0;
+  background: rgba(12, 14, 15, 0.74);
+  padding: clamp(1.2rem, 3vw, 2rem);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.news-post time {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.news-post h2,
+.news-post p {
+  margin: 0;
+}
+
+.news-post p {
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .guide-section {
@@ -1149,16 +1190,18 @@ section[id] {
 
 .install-tab-list {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(9rem, 1fr));
   gap: 0.5rem;
   border: 1px solid var(--line);
   background: var(--panel);
+  overflow-x: auto;
   padding: 0.35rem;
 }
 
 .install-tab {
   display: grid;
   align-items: center;
+  min-width: 9rem;
   min-height: 48px;
   border: 1px solid transparent;
   color: var(--muted);
@@ -1208,6 +1251,22 @@ section[id] {
 #install-testflight-ios:checked ~ .install-panel-testflight-ios,
 #install-app-store-ios:checked ~ .install-panel-app-store-ios,
 #install-google-play-android:checked ~ .install-panel-google-play-android {
+  display: block;
+}
+
+.plugin-tab-list {
+  grid-template-columns: repeat(2, minmax(9rem, 1fr));
+}
+
+#plugin-npx:checked ~ .plugin-tab-list .plugin-tab-npx,
+#plugin-manual:checked ~ .plugin-tab-list .plugin-tab-manual {
+  border-color: var(--line);
+  background: var(--panel-2);
+  color: var(--accent);
+}
+
+#plugin-npx:checked ~ .plugin-panel-npx,
+#plugin-manual:checked ~ .plugin-panel-manual {
   display: block;
 }
 
@@ -1368,6 +1427,10 @@ pre {
   padding: 72px 0;
 }
 
+.roadmap-page-shell > .footer {
+  width: 100%;
+}
+
 .footer-notice {
   max-width: 62ch;
   font-size: 0.78rem;
@@ -1404,6 +1467,10 @@ pre {
     grid-template-columns: 1fr;
   }
 
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .split-section,
   .docs-grid,
   .cards {
@@ -1438,12 +1505,15 @@ pre {
 
   .hero,
   .split-section,
-  .feature-grid,
   .docs-grid,
   .docs-layout,
   .plugin-feature-grid,
   .cards {
     grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .docs-layout {
@@ -1632,7 +1702,7 @@ pre {
 
   .modal-card {
     width: 100%;
-    border-radius: 22px;
+    border-radius: 0;
     padding: 1.25rem;
   }
 
@@ -1701,6 +1771,10 @@ pre {
   .docs-grid,
   .cards {
     gap: 0.75rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
   }
 
   .platform-tab {

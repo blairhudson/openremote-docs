@@ -11,6 +11,7 @@ type DocsNavGroup = {
 export const docsNavItems: (DocsNavLink | DocsNavGroup)[] = [
   { href: "/docs/installation", label: "Installation" },
   { href: "/docs/getting-started", label: "Getting started" },
+  { href: "/docs/plugin", label: "Plugin" },
   {
     label: "Self-hosting",
     items: [
