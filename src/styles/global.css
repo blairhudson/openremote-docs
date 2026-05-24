@@ -540,6 +540,55 @@ section[id] {
   color: var(--ink);
 }
 
+.docs-nav-group {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.docs-nav-group summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.88rem;
+  list-style: none;
+}
+
+.docs-nav-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.docs-nav-group summary::after {
+  content: "+";
+  color: var(--cyan);
+  font-weight: 800;
+}
+
+.docs-nav-group[open] summary::after {
+  content: "-";
+}
+
+.docs-nav-group summary:hover,
+.docs-nav-group[open] summary {
+  border-color: rgba(32, 167, 201, 0.32);
+  background: rgba(32, 167, 201, 0.08);
+  color: var(--ink);
+}
+
+.docs-nav-subitems {
+  display: grid;
+  gap: 0.25rem;
+  padding-left: 0.75rem;
+}
+
+.docs-nav-subitem {
+  font-size: 0.84rem;
+}
+
 .docs-content {
   min-width: 0;
   padding-top: 80px;
@@ -1083,6 +1132,83 @@ section[id] {
 
 .platform-panel p {
   color: var(--muted);
+}
+
+.install-tabs {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.install-radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.install-tab-list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 0.35rem;
+}
+
+.install-tab {
+  display: grid;
+  align-items: center;
+  min-height: 48px;
+  border: 1px solid transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0.62rem 0.7rem;
+  text-align: center;
+}
+
+.install-tab:hover,
+.install-tab:focus {
+  background: rgba(32, 167, 201, 0.08);
+  color: var(--cyan);
+}
+
+#install-expo-ios:checked ~ .install-tab-list .install-tab-expo-ios,
+#install-expo-android:checked ~ .install-tab-list .install-tab-expo-android,
+#install-apk-android:checked ~ .install-tab-list .install-tab-apk-android,
+#install-testflight-ios:checked ~ .install-tab-list .install-tab-testflight-ios,
+#install-app-store-ios:checked ~ .install-tab-list .install-tab-app-store-ios,
+#install-google-play-android:checked ~ .install-tab-list .install-tab-google-play-android {
+  border-color: var(--line);
+  background: var(--panel-2);
+  color: var(--accent);
+}
+
+.install-panel {
+  display: none;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  background: var(--panel);
+  padding: 1.15rem;
+}
+
+.install-panel h3,
+.install-panel p {
+  margin-bottom: 0;
+}
+
+.install-panel p {
+  color: var(--muted);
+}
+
+#install-expo-ios:checked ~ .install-panel-expo-ios,
+#install-expo-android:checked ~ .install-panel-expo-android,
+#install-apk-android:checked ~ .install-panel-apk-android,
+#install-testflight-ios:checked ~ .install-panel-testflight-ios,
+#install-app-store-ios:checked ~ .install-panel-app-store-ios,
+#install-google-play-android:checked ~ .install-panel-google-play-android {
+  display: block;
 }
 
 .app-store-badge,

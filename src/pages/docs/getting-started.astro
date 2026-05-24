@@ -1,10 +1,10 @@
 ---
-import "../../../styles/global.css";
-import DocsSidebar from "../../../components/DocsSidebar.astro";
+import "../../styles/global.css";
+import DocsSidebar from "../../components/DocsSidebar.astro";
 
 const siteUrl = "https://openremote.blairhudson.com";
-const pageTitle = "OpenRemote Android Self-Hosting Guide";
-const pageDescription = "Build and run OpenRemote on Android from source with Expo development builds.";
+const pageTitle = "OpenRemote Getting Started";
+const pageDescription = "Connect OpenRemote to OpenCode, discover servers, scan QR codes, and start using sessions from your phone.";
 ---
 
 <!doctype html>
@@ -17,7 +17,7 @@ const pageDescription = "Build and run OpenRemote on Android from source with Ex
     <meta name="theme-color" content="#151718" />
     <meta property="og:site_name" content="OpenRemote" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content={`${siteUrl}/docs/self-hosting/android`} />
+    <meta property="og:url" content={`${siteUrl}/docs/getting-started`} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
@@ -28,7 +28,7 @@ const pageDescription = "Build and run OpenRemote on Android from source with Ex
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={`${siteUrl}/og-image.jpg`} />
-    <link rel="canonical" href={`${siteUrl}/docs/self-hosting/android`} />
+    <link rel="canonical" href={`${siteUrl}/docs/getting-started`} />
     <link rel="icon" type="image/svg+xml" href="/openremote-icon.svg" />
     <title>{pageTitle}</title>
   </head>
@@ -65,37 +65,13 @@ const pageDescription = "Build and run OpenRemote on Android from source with Ex
 
         <article class="docs-content">
           <header class="docs-header">
-            <h1>Run OpenRemote on Android</h1>
-            <p>Build the app from source with Expo, install it on an Android emulator or device, and connect it to an OpenCode server on your network.</p>
+            <h1>Connect OpenRemote to OpenCode</h1>
+            <p>Start OpenCode on your computer, open OpenRemote on your phone, then connect over your local network.</p>
           </header>
 
           <section class="guide-section">
-            <h2>Prerequisites</h2>
-            <ul class="guide-list">
-              <li>Android Studio with Android SDK. Expo SDK 54 targets Android 7+ with compile SDK 36.</li>
-              <li>Java 17 active via <code>JAVA_HOME</code>.</li>
-              <li><code>ANDROID_HOME</code> or <code>ANDROID_SDK_ROOT</code>, or <code>android/local.properties</code> when needed.</li>
-              <li>An Android emulator or USB device visible to ADB.</li>
-            </ul>
-          </section>
-
-          <section class="guide-section">
-            <h2>Install dependencies</h2>
-            <pre><code>git clone https://github.com/blairhudson/openremote.git
-cd openremote
-bun install</code></pre>
-          </section>
-
-          <section class="guide-section">
-            <h2>Prepare Android</h2>
-            <p>Start an emulator from Android Studio, then verify ADB can see it:</p>
-            <pre><code>adb devices</code></pre>
-            <p>If <code>adb</code> is not found, add Android SDK platform-tools to your shell path.</p>
-          </section>
-
-          <section class="guide-section">
             <h2>Start OpenCode</h2>
-            <p>Use mDNS on physical devices. For manual connections, bind OpenCode to all interfaces.</p>
+            <p>Use mDNS for automatic discovery, or bind to all interfaces for manual LAN connection.</p>
             <div class="command-options">
               <pre><code>opencode --mdns</code></pre>
               <span>or</span>
@@ -106,25 +82,30 @@ bun install</code></pre>
           </section>
 
           <section class="guide-section">
-            <h2>Run the Android app</h2>
-            <pre><code>bun run android</code></pre>
-            <p>On the Android emulator, connect to the host machine with <code>10.0.2.2:4096</code>. On a physical device, use discovery or your host's LAN IP.</p>
-          </section>
-
-          <section class="guide-section">
-            <h2>Discovery and permissions</h2>
-            <p>OpenRemote's Android manifest is generated from <code>app.json</code> and includes internet, network state, Wi-Fi state, multicast, and camera permissions for discovery and QR scanning.</p>
-            <p>The optional plugin adds a TUI sidebar QR code for faster setup:</p>
-            <pre><code>npx opencode-openremote@latest</code></pre>
-          </section>
-
-          <section class="guide-section">
-            <h2>Troubleshooting</h2>
+            <h2>Connect from OpenRemote</h2>
             <ul class="guide-list">
-              <li>Confirm Java 17 is active before running <code>bun run android</code>.</li>
-              <li>Confirm <code>adb devices</code> lists the emulator or connected device.</li>
-              <li>Use <code>10.0.2.2:4096</code> from the emulator when OpenCode runs on the host machine.</li>
-              <li>If physical-device discovery fails, use <code>opencode --hostname 0.0.0.0</code> and connect to the host LAN IP manually.</li>
+              <li>OpenRemote searches for OpenCode servers on your network.</li>
+              <li>Tap a discovered server to fill the connection details.</li>
+              <li>If discovery is unavailable, enter the host LAN IP and port, usually <code>4096</code>.</li>
+              <li>On an Android emulator, connect to the host machine with <code>10.0.2.2:4096</code>.</li>
+            </ul>
+          </section>
+
+          <section class="guide-section">
+            <h2>Optional QR setup</h2>
+            <p>The optional OpenRemote plugin adds a TUI sidebar QR code and keep-awake support.</p>
+            <pre><code>npx opencode-openremote@latest</code></pre>
+            <p>Restart OpenCode after setup, then scan the QR code from OpenRemote.</p>
+          </section>
+
+          <section class="guide-section">
+            <h2>Use OpenRemote</h2>
+            <ul class="guide-list">
+              <li>Browse and resume OpenCode sessions.</li>
+              <li>Send chat prompts from your phone.</li>
+              <li>Run shell commands and view output in the transcript.</li>
+              <li>Approve or reject permission prompts remotely.</li>
+              <li>Switch Build or Plan and choose connected models.</li>
             </ul>
           </section>
           <footer class="footer docs-footer">
