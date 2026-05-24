@@ -3,8 +3,8 @@ import "../styles/global.css";
 
 const repoUrl = "https://github.com/blairhudson/openremote";
 const siteUrl = "https://openremote.blairhudson.com";
-const pageTitle = "OpenRemote News";
-const pageDescription = "OpenRemote release updates, app-store progress, and project news.";
+const pageTitle = "OpenRemote Privacy Policy";
+const pageDescription = "Privacy policy for the OpenRemote mobile app.";
 ---
 
 <!doctype html>
@@ -17,7 +17,7 @@ const pageDescription = "OpenRemote release updates, app-store progress, and pro
     <meta name="theme-color" content="#151718" />
     <meta property="og:site_name" content="OpenRemote" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={`${siteUrl}/news`} />
+    <meta property="og:url" content={`${siteUrl}/privacy`} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
@@ -28,7 +28,7 @@ const pageDescription = "OpenRemote release updates, app-store progress, and pro
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={`${siteUrl}/og-image.jpg`} />
-    <link rel="canonical" href={`${siteUrl}/news`} />
+    <link rel="canonical" href={`${siteUrl}/privacy`} />
     <link rel="icon" type="image/svg+xml" href="/openremote-icon.svg" />
     <title>{pageTitle}</title>
   </head>
@@ -53,19 +53,18 @@ const pageDescription = "OpenRemote release updates, app-store progress, and pro
       </nav>
 
       <header class="roadmap-hero news-hero">
-        <h1>News</h1>
-        <p class="lede">Release notes and distribution updates for OpenRemote.</p>
+        <h1>Privacy Policy</h1>
+        <p class="lede">Last updated: May 24, 2026</p>
       </header>
 
-      <section class="roadmap-section news-section" aria-label="OpenRemote news posts">
+      <section class="roadmap-section news-section" aria-label="OpenRemote privacy policy">
         <article class="news-post">
-          <time datetime="2026-05-24">May 24, 2026</time>
-          <h2>Android APK now available</h2>
-          <p>OpenRemote now has a signed Android APK available from GitHub Releases. Android users can install directly while Google Play distribution remains in progress.</p>
-          <p><a class="inline-link" href="/docs/installation#apk-android">Install the Android APK</a></p>
-          <p>OpenRemote has moved through the first public distribution milestones: the app is open source under FSL-1.1-MIT, installation docs are live, the optional OpenCode plugin is documented, and the first Android sideload release is available.</p>
-          <p>iOS TestFlight/App Store builds and Google Play distribution are still in progress. The iOS beta path is under review, and the Google Play path is tied to account appeal work.</p>
-          <p>For the current submission timeline and planned features, see the <a class="inline-link" href="/roadmap">OpenRemote roadmap</a>.</p>
+          <p>OpenRemote does not collect, sell, or share personal data.</p>
+          <p>OpenRemote connects directly to the OpenCode server you choose. The app may send connection details, chat messages, command output, session information, and permission choices to that server so the app can work.</p>
+          <p>OpenRemote does not operate a cloud service for app data.</p>
+          <p>Connection details may be stored locally on your device to make reconnecting easier.</p>
+          <p>Apple, Google, Expo, GitHub, or other distribution platforms may process app install, download, account, or crash information under their own privacy policies.</p>
+          <p>For questions, open an issue at <a class="inline-link" href="https://github.com/blairhudson/openremote/issues" target="_blank" rel="noreferrer">github.com/blairhudson/openremote/issues</a>.</p>
         </article>
       </section>
 
