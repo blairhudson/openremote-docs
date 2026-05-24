@@ -49,6 +49,13 @@ body.og-page {
   overflow: hidden;
 }
 
+.og-export-preview,
+.og-export-preview img {
+  display: block;
+  width: 1200px;
+  height: 630px;
+}
+
 a {
   color: inherit;
   text-decoration: none;

@@ -5,12 +5,14 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "generate:og": "bun scripts/generate-og.mjs",
+    "build": "bun run generate:og && astro check && astro build",
     "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/check": "latest",
     "astro": "latest",
+    "sharp": "latest",
     "typescript": "latest"
   },
   "devDependencies": {}

@@ -1,4 +1,10 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+import sharp from "sharp";
+
+const width = 1200;
+const height = 630;
+
+const svg = `
+<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="630" fill="#151718"/>
   <path d="M0 0h1200v630H0z" fill="url(#grid)" opacity="0.55"/>
   <circle cx="198" cy="78" r="310" fill="#20A7C9" opacity="0.12"/>
@@ -24,13 +30,14 @@
     </g>
   </g>
   <text x="104" y="230" fill="#F0FF00" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="800" letter-spacing="4">REMOTE FOR OPENCODE</text>
-  <text x="104" y="314" fill="#D0D0D0" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="64" font-weight="900">Control desktop coding</text>
-  <text x="104" y="388" fill="#D0D0D0" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="64" font-weight="900">sessions from your phone.</text>
-  <text x="104" y="448" fill="#A8A8A8" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="25">Chat, run shell commands, switch models, and approve</text>
-  <text x="104" y="486" fill="#A8A8A8" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="25">permissions over your local network.</text>
+  <text x="104" y="300" fill="#D0D0D0" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="52" font-weight="900">Control desktop</text>
+  <text x="104" y="360" fill="#D0D0D0" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="52" font-weight="900">coding sessions</text>
+  <text x="104" y="420" fill="#D0D0D0" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="52" font-weight="900">from your phone.</text>
+  <text x="104" y="478" fill="#A8A8A8" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="24">Chat, run shell commands, switch models, and approve</text>
+  <text x="104" y="514" fill="#A8A8A8" font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="24">permissions over your local network.</text>
   <g transform="translate(768 142)">
     <rect width="286" height="286" fill="#151718" stroke="#343738" stroke-width="2"/>
-    <g transform="translate(49 54) scale(.28)">
+    <g transform="translate(-0.5 -0.5) scale(.28)">
       <g transform="translate(176 272)">
         <rect x="0" y="0" width="96" height="96" fill="#A8A8A8"/><rect x="96" y="0" width="96" height="96" fill="#A8A8A8"/><rect x="192" y="0" width="96" height="96" fill="#A8A8A8"/><rect x="0" y="96" width="96" height="96" fill="#A8A8A8"/><rect x="192" y="96" width="96" height="96" fill="#A8A8A8"/><rect x="0" y="192" width="96" height="96" fill="#A8A8A8"/><rect x="192" y="192" width="96" height="96" fill="#A8A8A8"/><rect x="0" y="288" width="96" height="96" fill="#A8A8A8"/><rect x="192" y="288" width="96" height="96" fill="#A8A8A8"/><rect x="0" y="384" width="96" height="96" fill="#A8A8A8"/><rect x="96" y="384" width="96" height="96" fill="#A8A8A8"/><rect x="192" y="384" width="96" height="96" fill="#A8A8A8"/>
       </g>
@@ -39,14 +46,11 @@
       </g>
     </g>
   </g>
-  <g font-family="SFMono-Regular, Menlo, Consolas, monospace" font-size="20" font-weight="800">
-    <rect x="104" y="516" width="142" height="42" fill="#151718" stroke="#20A7C9"/><text x="123" y="544" fill="#20A7C9">TUI Sidebar</text>
-    <rect x="260" y="516" width="190" height="42" fill="#151718" stroke="#F0FF00"/><text x="279" y="544" fill="#F0FF00">QR Code Connect</text>
-    <rect x="464" y="516" width="132" height="42" fill="#151718" stroke="#E35FAB"/><text x="483" y="544" fill="#E35FAB">Keep Awake</text>
-  </g>
   <defs>
     <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
       <path d="M28 0H0v28" stroke="#FFFFFF" stroke-opacity="0.035"/>
     </pattern>
   </defs>
-</svg>
+</svg>`;
+
+await sharp(Buffer.from(svg)).jpeg({ quality: 92, mozjpeg: true }).toFile("public/og-image.jpg");
