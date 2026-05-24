@@ -17,6 +17,10 @@ const timelines = [
     notes: [
       {
         date: "2026-05-24",
+        text: "A video demo was provided to Apple per their beta review feedback.",
+      },
+      {
+        date: "2026-05-24",
         text: "Apple provided beta review feedback. We are addressing the notes before the first group of beta testers receive their TestFlight invite.",
       },
       {
@@ -63,6 +67,11 @@ const features = [
     text: "Let OpenRemote connect to OpenCode when phone and desktop are on different networks.",
   },
   {
+    status: "Planning",
+    title: "Question answering",
+    text: "Dedicated interface for LLM questions with headers, option lists, custom answers, and multi-question navigation before submitting all answers.",
+  },
+  {
     status: "Completed",
     title: "Initial OpenRemote app",
     text: "Mobile client with sessions, chat, shell, permissions, model controls, QR connect, and LAN discovery.",
@@ -83,6 +92,14 @@ const features = [
     text: "Public website, self-hosting guides, setup docs, and roadmap for OpenRemote.",
   },
 ];
+
+const featureStatusOrder: Record<string, number> = {
+  Planning: 0,
+  Backlog: 1,
+  Completed: 2,
+};
+
+const sortedFeatures = [...features].sort((left, right) => (featureStatusOrder[left.status] ?? 99) - (featureStatusOrder[right.status] ?? 99));
 ---
 
 <!doctype html>
@@ -182,7 +199,7 @@ const features = [
           </div>
         </article>
         <div class="feature-roadmap-grid">
-          {features.map((feature) => (
+          {sortedFeatures.map((feature) => (
             <article class="feature-roadmap-card">
               <span class={`status-pill status-pill-${feature.status.toLowerCase()}`}>{feature.status}</span>
               <h3>{feature.title}</h3>
