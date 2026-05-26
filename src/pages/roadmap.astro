@@ -75,9 +75,11 @@ const features = [
     text: "Let OpenRemote connect to OpenCode when phone and desktop are on different networks.",
   },
   {
-    status: "Planning",
+    status: "Completed",
     title: "Question answer dialog",
     text: "Dedicated interface for LLM questions with headers, option lists, custom answers, and multi-question navigation before submitting all answers.",
+    commitHref: "https://github.com/blairhudson/openremote/commit/7620d39",
+    commitRef: "7620d39",
   },
   {
     status: "Planning",
@@ -219,7 +221,10 @@ const sortedFeatures = [...features].sort((left, right) => (featureStatusOrder[l
         <div class="feature-roadmap-grid">
           {sortedFeatures.map((feature) => (
             <article class="feature-roadmap-card">
-              <span class={`status-pill status-pill-${feature.status.toLowerCase()}`}>{feature.status}</span>
+              <div class="feature-status-row">
+                <span class={`status-pill status-pill-${feature.status.toLowerCase()}`}>{feature.status}</span>
+                {feature.commitHref ? <a class="inline-link" href={feature.commitHref} target="_blank" rel="noreferrer">{feature.commitRef}</a> : null}
+              </div>
               <h3>{feature.title}</h3>
               <p>{feature.text}</p>
             </article>

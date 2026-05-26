@@ -775,6 +775,17 @@ section[id] {
   padding: 1rem;
 }
 
+.feature-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.feature-status-row .inline-link {
+  font-size: 0.76rem;
+}
+
 .roadmap-feedback-card {
   margin-top: 1rem;
 }
