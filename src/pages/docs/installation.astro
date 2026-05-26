@@ -4,8 +4,7 @@ import DocsSidebar from "../../components/DocsSidebar.astro";
 
 const repoUrl = "https://github.com/blairhudson/openremote";
 const siteUrl = "https://openremote.blairhudson.com";
-const androidApkReleaseUrl = `${repoUrl}/releases/tag/v1.0.0-android-apk`;
-const androidApkChecksum = "a711d84c14be96295b9273cd5fc83a70605d750992cbd8264a03cbe28648a4d1";
+const androidApkReleaseUrl = `${repoUrl}/releases`;
 const pageTitle = "OpenRemote Installation";
 const pageDescription = "Install OpenRemote on Android from GitHub Releases, use TestFlight on iOS when available, or build from source.";
 ---
@@ -70,28 +69,63 @@ const pageDescription = "Install OpenRemote on Android from GitHub Releases, use
         <article class="docs-content">
           <header class="docs-header">
             <h1>Install OpenRemote</h1>
-            <p>Use GitHub Releases for Android APKs, TestFlight for iOS when available, or build the app from source.</p>
+            <p>Use App Store TestFlight for iOS, Google Play Internal Testing for Android, GitHub Releases for Android APKs, or build the app from source.</p>
           </header>
 
           <section class="guide-section">
             <h2>Choose install path</h2>
             <p>Select the route that matches your device and how much you want to build yourself.</p>
             <div class="install-tabs" aria-label="Installation options">
-              <input id="install-expo-ios" class="install-radio" type="radio" name="install-path" data-install-hash="expo-ios" checked />
-              <input id="install-expo-android" class="install-radio" type="radio" name="install-path" data-install-hash="expo-android" />
-              <input id="install-apk-android" class="install-radio" type="radio" name="install-path" data-install-hash="apk-android" />
-              <input id="install-testflight-ios" class="install-radio" type="radio" name="install-path" data-install-hash="testflight-ios" />
-              <input id="install-app-store-ios" class="install-radio" type="radio" name="install-path" data-install-hash="app-store-ios" />
+              <input id="install-app-store-ios" class="install-radio" type="radio" name="install-path" data-install-hash="app-store-ios" checked />
               <input id="install-google-play-android" class="install-radio" type="radio" name="install-path" data-install-hash="google-play-android" />
+              <input id="install-apk-android" class="install-radio" type="radio" name="install-path" data-install-hash="apk-android" />
+              <input id="install-expo-ios" class="install-radio" type="radio" name="install-path" data-install-hash="expo-ios" />
+              <input id="install-expo-android" class="install-radio" type="radio" name="install-path" data-install-hash="expo-android" />
 
               <div class="install-tab-list" role="tablist" aria-label="Choose install path">
-                <label class="install-tab install-tab-expo-ios" for="install-expo-ios" role="tab">Expo (iOS)</label>
-                <label class="install-tab install-tab-expo-android" for="install-expo-android" role="tab">Expo (Android)</label>
-                <label class="install-tab install-tab-apk-android" for="install-apk-android" role="tab">APK (Android)</label>
-                <label class="install-tab install-tab-testflight-ios" for="install-testflight-ios" role="tab">TestFlight (iOS)</label>
                 <label class="install-tab install-tab-app-store-ios" for="install-app-store-ios" role="tab">App Store (iOS)</label>
                 <label class="install-tab install-tab-google-play-android" for="install-google-play-android" role="tab">Google Play (Android)</label>
+                <label class="install-tab install-tab-apk-android" for="install-apk-android" role="tab">APK (Android)</label>
+                <label class="install-tab install-tab-expo-ios" for="install-expo-ios" role="tab">Expo (iOS)</label>
+                <label class="install-tab install-tab-expo-android" for="install-expo-android" role="tab">Expo (Android)</label>
               </div>
+
+              <article class="install-panel install-panel-app-store-ios" role="tabpanel">
+                <h3>App Store (iOS)</h3>
+                <p>OpenRemote is available in private beta through TestFlight.</p>
+                <ul class="guide-list">
+                  <li>App Store (iOS): Available in Private Beta.</li>
+                  <li>Invited TestFlight users can install OpenRemote now.</li>
+                  <li>To request private beta access, message <a class="inline-link" href="https://www.linkedin.com/in/blairhudson/" target="_blank" rel="noreferrer">Blair Hudson</a> or comment on <a class="inline-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7461903327052607488/" target="_blank" rel="noreferrer">this post</a>.</li>
+                  <li>Use Expo (iOS) to build from source if you are not in the private beta.</li>
+                  <li><a class="inline-link" href="/roadmap">View current submission timeline</a>.</li>
+                </ul>
+              </article>
+
+              <article class="install-panel install-panel-google-play-android" role="tabpanel">
+                <h3>Google Play (Android)</h3>
+                <p>OpenRemote is available in private beta through Google Play Internal Testing.</p>
+                <ul class="guide-list">
+                  <li>Google Play (Android): Available in Private Beta.</li>
+                  <li>Google Play Internal Testers can install the first beta build now.</li>
+                  <li>To request private beta access, message <a class="inline-link" href="https://www.linkedin.com/in/blairhudson/" target="_blank" rel="noreferrer">Blair Hudson</a> or comment on <a class="inline-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7461903327052607488/" target="_blank" rel="noreferrer">this post</a>.</li>
+                  <li>Use APK (Android) for direct release installs outside Google Play testing.</li>
+                  <li>Use Expo (Android) when you want to build from source.</li>
+                  <li><a class="inline-link" href="/roadmap">View current submission timeline</a>.</li>
+                </ul>
+              </article>
+
+              <article class="install-panel install-panel-apk-android" role="tabpanel">
+                <h3>APK (Android)</h3>
+                <p>Download the latest signed APK from GitHub Releases.</p>
+                <p><a class="inline-link" href={androidApkReleaseUrl} target="_blank" rel="noreferrer">Download the Android APK release</a></p>
+                <ul class="guide-list">
+                  <li>Download the APK asset from the release.</li>
+                  <li>Open the APK on your Android device.</li>
+                  <li>Allow installs from this source when Android prompts.</li>
+                  <li>Android may show an unknown-app warning because the APK is distributed directly from GitHub instead of Google Play.</li>
+                </ul>
+              </article>
 
               <article class="install-panel install-panel-expo-ios" role="tabpanel">
                 <h3>Expo (iOS)</h3>
@@ -113,50 +147,6 @@ const pageDescription = "Install OpenRemote on Android from GitHub Releases, use
                 </ul>
               </article>
 
-              <article class="install-panel install-panel-apk-android" role="tabpanel">
-                <h3>APK (Android)</h3>
-                <p>Download the latest signed APK from GitHub Releases.</p>
-                <p><a class="inline-link" href={androidApkReleaseUrl} target="_blank" rel="noreferrer">Download the Android APK release</a></p>
-                <ul class="guide-list">
-                  <li>Download the APK asset from the release.</li>
-                  <li>Open the APK on your Android device.</li>
-                  <li>Allow installs from this source when Android prompts.</li>
-                  <li>Android may show an unknown-app warning because the APK is distributed directly from GitHub instead of Google Play.</li>
-                  <li>SHA-256: <code>{androidApkChecksum}</code>.</li>
-                </ul>
-              </article>
-
-              <article class="install-panel install-panel-testflight-ios" role="tabpanel">
-                <h3>TestFlight (iOS)</h3>
-                <p>TestFlight is the primary iOS beta path while App Store review is in progress.</p>
-                <ul class="guide-list">
-                  <li>Open beta invites are not available yet.</li>
-                  <li>Until invites open, use Expo (iOS) to build from source.</li>
-                  <li><a class="inline-link" href="/roadmap">Check roadmap submission updates</a>.</li>
-                </ul>
-              </article>
-
-              <article class="install-panel install-panel-app-store-ios" role="tabpanel">
-                <h3>App Store (iOS)</h3>
-                <p>App Store distribution is still in beta review.</p>
-                <ul class="guide-list">
-                  <li>App Store (iOS): beta review in progress.</li>
-                  <li>Use TestFlight (iOS) when invites open.</li>
-                  <li>Use Expo (iOS) to build from source while App Store distribution is pending.</li>
-                  <li><a class="inline-link" href="/roadmap">View current submission timeline</a>.</li>
-                </ul>
-              </article>
-
-              <article class="install-panel install-panel-google-play-android" role="tabpanel">
-                <h3>Google Play (Android)</h3>
-                <p>Google Play distribution is still in appeal.</p>
-                <ul class="guide-list">
-                  <li>Google Play (Android): appeal in progress.</li>
-                  <li>Use APK (Android) for release installs while Google Play distribution is pending.</li>
-                  <li>Use Expo (Android) when you want to build from source.</li>
-                  <li><a class="inline-link" href="/roadmap">View current submission timeline</a>.</li>
-                </ul>
-              </article>
             </div>
           </section>
 

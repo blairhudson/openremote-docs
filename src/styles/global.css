@@ -830,6 +830,8 @@ section[id] {
 }
 
 .news-section {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
   padding-top: 28px;
 }
 
@@ -1227,7 +1229,6 @@ section[id] {
 #install-expo-ios:checked ~ .install-tab-list .install-tab-expo-ios,
 #install-expo-android:checked ~ .install-tab-list .install-tab-expo-android,
 #install-apk-android:checked ~ .install-tab-list .install-tab-apk-android,
-#install-testflight-ios:checked ~ .install-tab-list .install-tab-testflight-ios,
 #install-app-store-ios:checked ~ .install-tab-list .install-tab-app-store-ios,
 #install-google-play-android:checked ~ .install-tab-list .install-tab-google-play-android {
   border-color: var(--line);
@@ -1255,7 +1256,6 @@ section[id] {
 #install-expo-ios:checked ~ .install-panel-expo-ios,
 #install-expo-android:checked ~ .install-panel-expo-android,
 #install-apk-android:checked ~ .install-panel-apk-android,
-#install-testflight-ios:checked ~ .install-panel-testflight-ios,
 #install-app-store-ios:checked ~ .install-panel-app-store-ios,
 #install-google-play-android:checked ~ .install-panel-google-play-android {
   display: block;

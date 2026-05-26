@@ -6,15 +6,19 @@ const siteUrl = "https://openremote.blairhudson.com";
 const pageTitle = "OpenRemote Roadmap";
 const pageDescription = "App store submission updates and planned features.";
 
-const distributionNote = "In light of app-store review challenges, OpenRemote was open sourced under FSL-1.1-MIT. Android APK releases are now available on GitHub while Google Play distribution is pending.";
+const distributionNote = "OpenRemote was open sourced under FSL-1.1-MIT while app-store distribution was being finalized. Android APK releases remain available on GitHub for direct install.";
 
 const timelines = [
   {
     title: "App Store (iOS)",
     icon: "apple",
-    status: "Beta review in progress",
-    statusTone: "progress",
+    status: "Available in Private Beta",
+    statusTone: "completed",
     notes: [
+      {
+        date: "2026-05-26",
+        text: "Apple approved the beta release. OpenRemote is now available for TestFlight users to install.",
+      },
       {
         date: "2026-05-24",
         text: "A video demo was provided to Apple per their beta review feedback.",
@@ -36,9 +40,13 @@ const timelines = [
   {
     title: "Google Play (Android)",
     icon: "play",
-    status: "Appeal in progress",
-    statusTone: "alert",
+    status: "Available in Private Beta",
+    statusTone: "completed",
     notes: [
+      {
+        date: "2026-05-26",
+        text: "Google Play issues are resolved. First beta build is now available for Google Play Internal Testers to install.",
+      },
       {
         date: "2026-05-24",
         text: "First Android APK release published on GitHub for direct install while Google Play access remains under appeal.",
@@ -57,19 +65,29 @@ const timelines = [
 
 const features = [
   {
-    status: "Planning",
+    status: "Backlog",
     title: "In-app keep-awake toggle",
     text: "Control keep-awake from OpenRemote without changing plugin setup.",
   },
   {
     status: "Backlog",
-    title: "Network tunnels",
+    title: "Remote access tunnels",
     text: "Let OpenRemote connect to OpenCode when phone and desktop are on different networks.",
   },
   {
     status: "Planning",
-    title: "Question answering",
+    title: "Question answer dialog",
     text: "Dedicated interface for LLM questions with headers, option lists, custom answers, and multi-question navigation before submitting all answers.",
+  },
+  {
+    status: "Planning",
+    title: "Multiple server discovery",
+    text: "Improve the experience when multiple OpenCode servers are running on the same network.",
+  },
+  {
+    status: "Planning",
+    title: "Responsive device support",
+    text: "Improve UX across a larger range of device sizes, especially small screens.",
   },
   {
     status: "Completed",
